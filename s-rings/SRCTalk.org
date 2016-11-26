@@ -1,0 +1,16 @@
+
+* Definition of S-rings, S-rings as partitions of conjugacy classes
+
+** Examples, including trivial cases
+
+* Complete graphs with colorings
+
+* Description of the problem on small cases
+
+* Gallai colorings
+
+* Closed under substitution
+
+* Rooted binary trees
+
+* Wedderburn-Etherington numbers

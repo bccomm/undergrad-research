@@ -1,0 +1,103 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newcommand{\rep}{\mathrm{rep}}
+\newcommand{\Id}{\mathrm{Id}}
+\begin{document}
+\begin{lem}\label{ConjLemma}
+$$|C^2(G,H)| = |G| + |H| \sum_{\substack{h \rep H\\ h\neq
+    \Id}}\frac{|C_G(h)|}{|C_H(h)|} = |G| \left( 1 + \sum_{\substack{h \rep H\\ h\neq
+    \Id}}\frac{|h^H|}{|h^G|}\right) $$
+\end{lem}
+\begin{proof}
+Applying the orbit-stabilizer theorem,
+\begin{eqnarray*}
+  |C^2(G,H)| & = & \sum_{h\in H}|C_G(h)| = \sum_{h\rep H}|h^H||C_G(h)| =
+  \sum_{h\rep H}\frac{|H|}{|C_H(h)|}|C_G(h)|\\
+  & = & |G| + |H|\sum_{\substack{h \rep H\\ h\neq
+      \Id}}\frac{|C_G(h)|}{|C_H(h)|}\\
+  & = & |G| + |H|\sum_{\substack{h \rep H\\ h\neq
+      \Id}}\frac{|G|/|h^G|}{|H|/|h^H|} = |G| \left( 1 + \sum_{\substack{h \rep H\\ h\neq
+        \Id}}\frac{|h^H|}{|h^G|}\right)\\
+\end{eqnarray*}
+\end{proof}
+
+Every conjugacy class of $GL(2,p)$ is in one of the following
+categories:
+\begin{enumerate}
+\item Central elements; that is, scalar matrices.
+\item Non-central matrices that are diagonalizable over $\mathbb{F}_p$
+\item Matrices that are diagonalizable over
+  $\mathbb{F}_p^2\backslash\mathbb{F}_p$.
+\item Matrices whose Jordan canonical form is not diagonal.
+\end{enumerate}
+
+Let $\pi:GL(2,p)\to GL(3,p)$ be the map $$\left(\begin{array}{cc} a & b\\ c & d\end{array}\right)
+\mapsto \left(\begin{array}{ccc} a & b & 0\\ c& d& 0\\ 0 & 0 &
+    1\\\end{array}\right)$$. 
+
+We consider each of the above categories separately. If $h\in GL(2,p)$
+is central but not the identity, then it maps to a diagonalizable
+matrix in $GL(3,p)$ having two distinct eigenvalues. There are $p-2$
+such elements in $H$ and the conjugacy class of each in $G$ has size
+$p^4+p^3+p^2$. The total contribution from this category is
+thus $$(p-2)\frac{|G|/(p^4+p^3+p^2)}{|H|/1} = (p-2)\frac{p^3-1}{p^2+p+1} = (p-2)(p-1)$$
+
+If $h\in GL(2,p)$ is diagonalizable over $\mathbb{F}_p$, then
+$|h^H|=p^2+p$. Under $\pi$, we must consider two cases. If 1 is an
+eigenvalue of $h$, then there are $p-2$ choices for the other
+eigenvalue and, as above, $|h^G|=p^4+p^3+p^2$. If 1 is not an
+eigenvalue of $h$, then there are $(p-2)(p-3)/2$ choices for the
+eigenvalues and $|h^G|=p^3(p+1)(p^2+p+1)$. The contribution from this
+category is then 
+\begin{eqnarray*}
+     (p-2)\frac{|G|/(p^4+p^3+p^2)}{|H|/(p^2+p)} & + &
+  \frac{(p-2)(p-3)}{2}\cdot\frac{|G|/(p^3(p+1)(p^2+p+1))}{|H|/(p^2+p)}\\
+   = (p-2)p(p+1)(p-1) & + & \frac{(p-2)(p-3)}{2} (p-1)\\
+%   = p^4-\frac{3}{2}p^3-4p^2+\frac{15}{2}p-3 & & \\
+\end{eqnarray*}
+
+If $h$ is diagonalizable over $\mathbb{F}_p^2$ but not over
+$\mathbb{F}_p$, then $|h^H|= p^2-p$. There are $(p^2-p)/2$ such
+conjugacy classes in $H$ and $|h^G| = p^6-p^3$. The contribution from
+these conjugacy classes is
+$$ \frac{p^2-p}{2}\cdot\frac{|G|/(p^6-p^3)}{|H|/(p^2-p)} =
+\frac{p^2-p}{2}\cdot (p-1)$$
+
+If $h$ is not diagonalizable, then $|h^H|=p^2-1$. In this case, $\pi(h)$
+cannot have distinct eigenvalues. We again consider two cases. If
+$\pi(h)$ has two eigenvalues, then $|h^G|= p^2(p+1)(p-1)(p^2+p+1)$. There are
+$p-2$ such conjugacy classes in $H$. If $\phi(h)$ has only one
+eigenvalue, then $\pi(h)\sim \left(\begin{array}{ccc}1 & 1 &0\\ 0 & 1 &
+  0\\ 0 & 0 & 1\end{array}\right)$. In this case,
+$|h^G|=(p-1)(p+1)(p^2+p+1)$ and the total contribution from this
+category is 
+\begin{eqnarray*}
+  (p-2)\cdot\frac{|G|/(p^2(p+1)(p-1)(p^2+p+1))}{|H|/(p^2-1)} & + &
+  \frac{|G|/((p-1)(p+1)(p^2+p+1))}{|H|/(p^2-1)}\\
+ = (p-2)(p-1) & + & p^2(p-1)\\
+\end{eqnarray*}
+
+\begin{thm}
+$C^2(GL(3,p),GL(2,p)) = p(p^4+2p^3+2p^2-3p-1)(p+1)(p-1)^3$
+\end{thm}
+\begin{proof}
+\begin{eqnarray*}
+  \sum_{\substack{h \rep H\\ h\neq
+      \Id}}\frac{|C_G(h)|}{|C_H(h)|} & = & (p-2)(p-1)+(p-2)p(p+1)(p-1)\\
+  &+& (p-1)(p-2)(p-3)/2+p(p-1)^2/2\\
+  &+& (p-2)(p-1)+p^2(p-1)\\
+  &=& p^4-4p^2+2p+1
+\end{eqnarray*}
+
+By Lemma \ref{ConjLemma},
+\begin{eqnarray*}
+ & & C^2(GL(3,p),GL(2,p))  =  |GL(3,p)| + |GL(2,p)|\sum_{\substack{h \rep H\\ h\neq
+    \Id}}\frac{|C_G(h)|}{|C_H(h)|}\\
+ &=&  (p^3-1)(p^3-p)(p^3-p^2)+(p^2-1)(p^2-p)(p^4-4p^2+2p+1)\\
+ &=& p(p^4+2p^3+2p^2-3p-1)(p+1)(p-1)^3
+\end{eqnarray*}
+\end{proof}
+
+\end{document}

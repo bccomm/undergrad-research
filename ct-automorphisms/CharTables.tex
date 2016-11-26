@@ -1,0 +1,234 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\title{Automorphism Groups of Character Tables}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corrolary}
+\newtheorem{todo}{To-do}
+\newcommand{\rep}{\mathrm{rep}}
+\newcommand{\Id}{\mathrm{Id}}
+\begin{document}
+\maketitle
+Let $\mathcal{CT}$ be a fixed character table for some finite group
+$G$ and consider the group of automorphisms of $\mathcal{CT}$ given by
+permuting its rows and columns.
+
+\begin{thm}
+  Suppose that an automorphism of $\mathcal{CT}$ acts by permuting the
+  rows and columns cyclically, where both the row
+  and column permutations have the same cycle length. Assume also that
+  the rows being permuted are linear characters, that for all $g$ in
+  any of the conjugacy classes of the permuted characters, we have
+  $\chi_k(g)=0$ for all nonlinear characters $\chi_k$, and that both
+  the row and column permutations act trivially on all character values except some
+  square block of size $n$, as shown here. 
+\[
+\begin{matrix}
+  1 & \hdotsfor{3}     & 1 & 1 & \cdots & 1\\
+ \vdots   & \ddots & &              & e_2 & e_2 & \cdots & e_2\\
+ \vdots   & & \ddots &              & \vdots & \vdots & \vdots & \vdots\\
+ \vdots   & &  & \ddots             & e_{l} & e_{l} & \cdots & e_{l}\\
+1 & d_2 & \cdots & d_{k} & \alpha_1    & \alpha_{n} & \cdots & \alpha_2\\
+1 & d_2 & \cdots & d_{k} & \alpha_2    & \alpha_1    & \cdots & \alpha_3\\
+\vdots    & & &              & \vdots     & \vdots      & \vdots & \vdots\\
+1 & d_2 & \cdots & d_{k} & \alpha_{n} & \alpha_{n-1} & \cdots & \alpha_1\\
+\hdotsfor{4}            & 0 & 0 & 0 & 0\\    
+  
+\end{matrix}
+\]
+
+Then $[G:G^{\prime}]=n+1$.
+\end{thm}
+
+\begin{proof}
+By column orthogonality,
+$\sum_{\chi\in\mathrm{Irr}(G)}\chi(g)\overline{\chi(g)} = |C_G(g)|$. If
+$g$ is any representative of the permuted columns, each character
+value $c$ is a root of unity, so $c\overline{c}=1$ and this sum
+evaluates to $l+n$. Hence each of the permuted conjugacy classes has
+the same size. Now consider the other inner products among the
+permuted columns. This yields the system of equations 
+
+\begin{align*}
+l + \sum_{i=1}^n \alpha_{\sigma_1(i)}\overline{\alpha_{\sigma_2(i)}} = 
+\begin{cases}
+  |C_G(g)| = l+n,& \sigma_1=\sigma_2\\
+  0,&\sigma_1\neq\sigma_2\\
+\end{cases}
+\end{align*}
+
+as $\sigma_1$ and $\sigma_2$ range over the cyclic permutations of
+$\{1,2,\ldots,n\}$ and act by permuting the indices of the $\alpha_i$.
+
+Subtracting $l$ from both sides, the equations can be expressed by the
+matrices
+
+\begin{align*}
+\begin{bmatrix}
+\alpha_1    & \alpha_{n} & \hdots & \alpha_2\\
+\alpha_2    & \alpha_1    & \hdots & \alpha_3\\
+\vdots      & \vdots     & \ddots & \vdots\\
+\alpha_{n} & \alpha_{n-1} & \hdots & \alpha_1
+\end{bmatrix}
+\begin{bmatrix}
+\overline{\alpha_1}    & \overline{\alpha_2} & \hdots & \overline{\alpha_{n}}\\
+\overline{\alpha_{n}} & \overline{\alpha_1} & \hdots & \overline{\alpha_{n-1}}\\
+\vdots      & \vdots   & \ddots & \vdots\\
+\overline{\alpha_2}    & \overline{\alpha_3} & \hdots & \overline{\alpha_1} 
+\end{bmatrix}
+ & = &
+\begin{bmatrix}
+n    & -l & \hdots & -l\\
+-l & n & \hdots & -l\\
+\vdots      & \vdots   & \ddots & \vdots\\
+-l    & -l & \hdots & n 
+\end{bmatrix} \\ & = &
+nI-l(J-I).
+\end{align*}
+
+The matrix on the right hand side has an eigenvalue
+$n-(n-1)l$. Observe that the left hand side is the product of a matrix
+and its conjugate transpose. For any such product, if $\lambda$ is an
+eigenvalue and $u$ a corresponding eigenvector,
+$\lambda\langle u,u\rangle = \langle A^*Au,u\rangle = \langle
+Au,Au\rangle\geq 0$.
+Since $\langle x,x\rangle\geq 0$ for any $x\in\mathbb{C}$, we must
+have $\lambda\geq 0$.
+
+Hence the above matrix has only non-negative eigenvalues. In
+particular, $n-(n-1)l = n-nl+l\geq 0$. Since the $\alpha_i$ are not
+all equal, we have $l\geq 1$, so $n-nl\geq -1$. On the other hand,
+$n\geq 2$, so $2-l\geq 0$. If $l=2$, then $n-nl=-n\geq -1$ gives
+$n=1$, a contradiction. Thus $l=1$ and $n+l=[G:G^{\prime}]=n+1$.
+\end{proof}
+
+\begin{thm}
+  Let $R$ and $S$ be the permutation groups of the rows and columns of
+  a character table $\mathcal{CT}$, respectively. Then the natural
+  homomorphisms $\theta: \mathrm{Aut}{(\mathcal{CT})}\to R$ and $\phi:
+  \mathrm{Aut}{(\mathcal{CT})}\to S$ are injective.
+\end{thm}
+
+\begin{proof}
+  Let $\pi_1,\pi_2\in\mathrm{Aut}{(\mathcal{CT})}$ and suppose that
+  $\theta(\pi_1)=\theta(\pi_2)$. Then the actions of $\pi_1$ and
+  $\pi_2$ on the rows of $\mathcal{CT}$ are the same. Let
+  $\theta(\pi_1)\cdot \mathcal{CT} = \mathcal{CT}^{\prime}$. Since
+  $\pi_1$ and $\pi_2$ are automorphisms,
+  $\mathcal{CT}=\phi(\pi_1)\cdot\mathcal{CT}^{\prime}=\phi(\pi_2)\cdot\mathcal{CT}^{\prime}$. Let
+  $\mathcal{K}$ be a column of $\mathcal{CT}$. Then there are columns
+  $\mathcal{K}_1$ and $\mathcal{K}_2$ such that $\phi(\pi_1)$ maps
+  $\mathcal{K}_1$ to $\mathcal{K}$ and $\phi(\pi_2)$ maps
+  $\mathcal{K}_2$ to $\mathcal{K}$. But since $\phi\pi_i$ act only on
+  columns, it must be that $\mathcal{K}_1=\mathcal{K}_2$. If not,
+  there would be two columns, the pre-images of $\phi\pi_i$, that have
+  the same entries---a contradiction since $\mathcal{CT}$ is an
+  invertible matrix. Hence both the row and column actions of $\pi_1$
+  and $\pi_2$ are the same.
+\end{proof}
+
+
+\begin{thm}
+  Every column permutation acts trivially on the trivial character,
+  and every row permutation acts trivially on the character degrees.
+\end{thm}
+
+\begin{proof}
+  Since the trivial character is the map $\chi(g)=1$ for all $g\in G$,
+  every arrangement of the conjugacy classes in $G$ yields the same
+  row of ones. 
+
+  Suppose that some row permutation $\pi_{row}$ acts on the column of
+  character degrees $\mathcal{K}_1$ and that there is a $\pi_{col}$
+  such that $\pi_{col}\pi_{row}$ is an automorphism. Then there is
+  some column of $\mathcal{CT}$ that is an arrangement of the
+  character degree values, call it $\mathcal{K}_0$. Now consider the
+  inner product of these two columns. Since both are arrangements of
+  positive integers, the inner product
+  $\sum_{\chi\in \mathrm{Irr}(G)}\chi(g)\overline{\chi(h)}$, where $g$
+  and $h$ are class representatives of $K_0$ and $K_1$, respectively,
+  must be positive. This contradicts the column orthogonality
+  theorem unless $\mathcal{K}_1=\mathcal{K}_0$.
+\end{proof}
+
+\begin{cor}
+  Let $\pi$ be an automorphism of $\mathcal{CT}$, and $\pi_{row}$ be
+  the corresponding row permutation.  Then
+  $\pi_{row}\cdot\chi_i(1)=\pi_{row}\cdot\chi_j(1)$ for all characters
+  $\chi_i,\chi_j\in\mathrm{Irr}(G)$. That is, for any automorphism of
+  $\mathcal{CT}$, the the action of the row permutation maps every
+  character to a character of the same degree.
+\end{cor}
+
+\begin{cor}
+  Every row permutation fixes the trivial character, and every column
+  permutation fixes the character degrees.
+\end{cor}
+
+\begin{thm}
+   Suppose that there is a character table automorphism $\phi$ in a group
+   $H\simeq G/\langle z\rangle$, where $G$ is a non-abelian $2$-group
+   and $z$ is a central element of order two. Then $\phi$ is also an
+   automorphism of $G$. 
+\end{thm}
+
+\begin{proof}
+  We have two \emph{or more} cases.
+
+   Case 1. Assume that this automrophism affects only classes that, as
+   classes in G, stabilize the action of $z$. In other words, if
+   $\phi\in\mathrm{Aut}(\mathcal{CT}(H))$ and
+   $\phi_{col}(\mathcal{K}_i)=\mathcal{K}_j$, then for all
+   $g\in\mathcal{K}_i$, $g\sim_{\tiny G} gz$.
+
+   Let $\chi_S$ be an irreducible character of $G$ that is not an
+   $H$-character. Then if $z\in$ ker $\chi_S$, we are
+   done. \emph{FIXME: Why?} If it is not, then as a central element of
+   order, it must be mapped to $-\chi_S(1)$. Let $\rho_S$ be the
+   irreducible representation corresponding to $\chi_S$. Then if $g$
+   and $h$ are conjugacy class representatives of the permuted
+   columns, we know that $g\cong gz$ and $h\cong hz$. But since
+   $\rho_S(z)=-I_{\chi_S(1)}$, $\chi(g)=-\chi(g)$ and likewise for
+   $h$, so both character values must be 0. \emph{FIXME: Why doesn't
+     this kill every character value?}
+
+   Case 2. $g\nsim gz$
+\end{proof}
+
+\begin{todo}
+  Let $\pi$ and $\pi_{col}$ be as above. If
+  $\pi_{col}$ maps $\mathcal{K}_1$ to $\mathcal{K}_2$, then $|\mathcal{K}_1|=|\mathcal{K}_2|$.
+\end{todo}
+
+\emph{This can probably be combined with the next result}
+
+\begin{todo}
+  Suppose that $\pi$ is an automorphism of a character table. Then the
+  row and column permutations $\theta(\pi)$ and $\phi(\pi)$ have the
+  same cycle shape.
+\end{todo}
+
+\begin{proof}
+  Let $\Phi_r$ and $\Phi_c$ be permutation matrices corresponding to
+  the row and column permutations respectively, so that if
+  $M=\mathcal{CT}(G)$, $\Phi_r M \Phi_c^T=M$. We then have $\Phi_C=M^T\Phi_R(M^T)^{-1}$.
+
+  \emph{This is not quite finished. We need to show that conjugation
+    by $M$ can be rewritten as conjugation by permutation matrices.}
+  By column orthogonality relations,
+  $M^*M=\mathrm{diag}\{|C_G(g)|\}$. Rewrite this as
+  $\Phi_c M^* \Phi_r^T \Phi_r M \Phi_c^T $. Since permutation matrices
+  are orthogonal, this simplifies to $\Phi_c M^* M \Phi_c^T$. Since
+  column permutations map conjugacy classes to classes of the same
+  size, $\Phi_r$ must act trivially on $M^*M$.
+\end{proof}
+
+\begin{todo}
+  The character table of every non-abelian solvable group except $S_3$
+  has a nontrivial automorphism.
+\end{todo}
+
+
+
+\end{document}

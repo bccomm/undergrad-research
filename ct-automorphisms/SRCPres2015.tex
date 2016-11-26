@@ -1,0 +1,288 @@
+
+\documentclass[xcolor=dvipsnames]{beamer}
+\usetheme{Madrid}
+\setbeamertemplate{blocks}[default]
+\setbeamertemplate{items}[square]
+\usecolortheme[named=OliveGreen]{structure}
+\usepackage{amsmath,amsthm,amssymb,amscd,amsfonts}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{graphicx,color}
+\useoutertheme{infolines}
+
+\newcommand{\vsum}{underset{v}{\oplus}}
+\theoremstyle{remark}
+\newtheorem{case}{Case}
+\newtheorem{subcase}{Subcase}[case]
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{ex}{Example}
+\newtheorem*{remark}{Remark}
+\newtheorem{cor}{Corollary}
+\newtheorem{question}[theorem]{Question}
+\DeclareMathOperator{\pin}{pin}
+\DeclareMathOperator{\mr}{mr}
+\DeclareMathOperator{\stc}{sc}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\mn}{min}
+\DeclareMathOperator{\I}{\mathcal I}
+\DeclareMathOperator{\cc}{cc}
+\DeclareMathOperator{\T}{T}
+
+\begin{document}
+\title[Character Table Automorphisms]{Automorphism Groups of Character
+Tables}
+\author[ ]{Bruce Chiarelli \and\\ mentored by Dr. Stephen Humphries}
+\institute[ ]{Brigham Young University}
+\date{March 21, 2015}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Definitions}
+  Let $G$ be a finite group. Fix an ordering of the conjugacy classes
+  $(g_1^G,g_2^G,\ldots,g_r^G)$ and irreducible characters
+  $(\chi_1,\chi_2,\ldots,\chi_r)$ of $G$. This produces a fixed
+  character table $\mathcal{CT}=[\chi_i(g_j)]$. \pause
+\begin{block}{Definition}
+  A character table automorphism of $\mathcal{CT}$ is a function $\pi$
+  which acts by permuting the conjugacy classes and irreducible
+  characters of $G$ so that $\pi(\mathcal{CT})=\mathcal{CT}$.\pause
+
+  In other words, $\pi$ permutes the rows and columns of
+  $\mathcal{CT}$ and leaves the character table values unchanged.
+\end{block}
+\pause The set of automorphisms of $\mathcal{CT}$ forms a group under
+composition.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Example: $D_8$}
+\[ 
+\begin{array}{|c|ccccc|}\hline
+  g & e & a^2 & a & b & ab\\
+  |g^G| & 1 & 1 & 2 & 2 & 2\\
+%  |C_G(g)| & 8 & 8 & 4 & 4 & 4\\
+%  |g| & 1 & 2 & 4 & 2 & 2\\
+  \hline
+  \chi_1 & 1 & 1 & 1 & \textcolor<3->{green}{1} & \textcolor<3->{green}{1}\\
+  \chi_2 & 1 & 1 & 1 & \textcolor<3->{green}{-1}& \textcolor<3->{green}{-1}\\
+  \chi_3 & \textcolor<3->{green}{1} & \textcolor<3->{green}{1} & \textcolor<3->{green}{-1} & \textcolor<2->{red}{1} & \textcolor<2->{red}{-1}\\
+  \chi_4 & \textcolor<3->{green}{1} & \textcolor<3->{green}{1} & \textcolor<3->{green}{-1} & \textcolor<2->{red}{-1}& \textcolor<2->{red}{1}\\
+  \chi_5 & 2 & -2& 0 & \textcolor<3->{green}{0} & \textcolor<3->{green}{0}\\\hline
+\end{array}\onslide<4->{\rightarrow
+\begin{array}{|c|ccccc|}\hline
+  g & e & a^2 & a & \textcolor<4>{red}{ab} & \textcolor<4>{red}{b}\\
+  |g^G| & 1 & 1 & 2 & 2 & 2\\
+%  |C_G(g)| & 8 & 8 & 4 & 4 & 4\\
+%  |g| & 1 & 2 & 4 & 2 & 2\\
+  \hline
+  \chi_1 & 1 & 1 & 1 & 1 & 1\\
+  \chi_2 & 1 & 1 & \textcolor<5->{red}{1} & \textcolor<5->{red}{-1}& \textcolor<5->{red}{-1}\\
+  \textcolor<4>{red}{\chi_4} & 1 & 1 & \textcolor<5->{red}{-1} & \textcolor<5->{red}{1} & \textcolor<5->{red}{-1}\\
+  \textcolor<4>{red}{\chi_3} & 1 & 1 & \textcolor<5->{red}{-1} &
+                                                                \textcolor<5->{red}{-1}& \textcolor<5->{red}{1}\\
+  \chi_5 & 2 & -2& 0 & 0 & 0\\\hline
+\end{array}
+}
+\]
+
+\onslide<6>{$\mathrm{Aut}(\mathcal{CT}(D_8))=S_3$}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Basic Properties}
+\begin{itemize}
+\pause
+\item Each automorphism $\pi$ can be decomposed into $\pi_{col}$ and
+  $\pi_{row}$.\pause
+\item If $\mathcal{CT}$ and $\mathcal{CT}^{\prime}$ are character
+  tables of the same group, then $\mathrm{Aut}(\mathcal{CT})\cong\mathrm{Aut}(\mathcal{CT}^{\prime})$.\pause
+\item The row corresponding to the trivial character and the column
+  corresponding to the character degrees always remain fixed.\pause
+\item For any $\pi\in\mathrm{Aut(}\mathcal{CT}(G)\mathrm{)}$, the
+  corresponding $\pi_{row}$ must map characters to characters of the
+  same degree.\pause
+\item For any $\pi\in\mathrm{Aut(}\mathcal{CT}(G)\mathrm{)}$, the
+  corresponding $\pi_{col}$ must map conjugacy classes to classes
+  of the same size.\pause
+\item However, if $\pi_{col}$ maps $g^G\mapsto h^G$, it is not
+  necessarily the case that $|g|=|h|$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Brauer's Permutation Lemma}
+\begin{block}{Lemma (Brauer 1941, Kov\'acs 1982)}
+  Suppose that $M$ and $N$ are similar permutation matrices over a
+  field of characteristic zero. Then $M$ and $N$ are permutation
+  similar. \pause
+
+If $M$ and $N$ are permutation matrices and conjugate as elements of
+$GL(n,\mathbb{C})$ then they are conjugate as elements of $S_n$.
+\end{block}
+%\pause
+%\begin{itemize}
+%\item Note that $M$ and $N$ are diagonalizable matrices and their
+%  eigenvalues are roots of unity.\pause 
+%\item Consider the characteristic polynomials of $M$ and $N$, which
+%  are products of cyclotomic polynomials. %FIXME
+%\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Permutation similarity}
+\begin{itemize}
+\item Fix a character table $\mathcal{CT}$ of a finite group $G$. Let
+$\pi\in\mathrm{Aut(}\mathcal{CT}(G)\mathrm{)}$ and let $\pi_{row}$ and
+$\pi_{col}$ be the corresponding row and column permutations. \pause
+
+\item Let $R$ and $C$ be the permutation matrices corresponding to
+$\pi_{row}$ and $\pi_{col}$, respectively. Since $\pi$ is an
+automorphism of $\mathcal{CT}$, we can write
+$\mathcal{CT}=R[\mathcal{CT}]C^T$.\pause
+
+\item Rearranging, we have $C=[\mathcal{CT}]^{-1}R[\mathcal{CT}]$, so $C$
+and $R$ are similar permutation matrices.\pause
+\end{itemize}
+
+\begin{block}{Theorem}
+  $\pi_{row}$ and
+  $\pi_{col}$ have the same cycle shape.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Groups with nontrivial CT Automorphisms}
+Which groups have a nontrivial character table automorphism?\pause\vspace{.3cm}
+
+We have found explicit character table automorphisms for
+\begin{itemize}
+\item Dihedral and generalized dihedral groups
+\item Extraspecial 2-groups
+\item Generalized quaternion groups\pause
+\end{itemize}
+\begin{block}{Conjecture}
+Every non-abelian solvable group except $S_3$ has a nontrivial character table automorphism.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Character lifting in 2 groups}
+Let $|G|=2^n$ and choose $z\in Z(G)$, where $|z|=2$. Let $H=G/\langle
+z\rangle$.\pause\vspace{.3cm}
+
+The character table of $H$ is embedded within the character table of
+$G$.\pause\vspace{.3cm}
+
+%Can an automorphism of $\mathcal{CT}_H$ be lifted to $\mathcal{CT}_G$
+%in the same way we lift characters?\pause
+
+If we lift the characters of $H$ to $G$, under what conditions are
+character table automorphisms preserved?\vspace{.3cm}
+
+\[
+\begin{array}{ccccccc}
+  \mathcal{CT}_H       &   &        &       & \overline{g_1} & \overline{g_2}\\
+  \chi_1 & 1 & \cdots &   1 & 1              & 1\\
+         &   &   &             & b_1            & b_1\\
+         &   &   &             & \vdots         & \vdots\\
+         &   &   &             & b_l            & b_l\\
+  \chi_s & a_1 &\cdots & a_k & c & d\\
+  \chi_t & a_1 &\cdots & a_k & d & c\\
+\end{array}
+\begin{array}{|ccccccc}
+  \mathcal{CT}_G         &   &       &       & g_1 & g_2 & g_G\\
+  \chi_1 & 1 & \cdots  & 1 & 1              & 1 & 1\\
+         &   &   &             & b_1            & b_1 &\\
+         &   &   &             & \vdots         & \vdots&\\
+         &   &   &             & b_l            & b_l&\\
+  \chi_s & a_1 &\cdots  & a_k & c & d &a_i\\
+  \chi_t & a_1 &\cdots  & a_k & d & c &a_i\\
+  \chi_u &     &        &    & \mu & \mu^{\prime} &\\ 
+\end{array}
+\]
+
+\end{frame}
+
+\begin{frame}
+\[
+\begin{array}{ccccccc}
+  \mathcal{CT}_H       &   &        &       & \overline{g_1} & \overline{g_2}\\
+  \chi_1 & 1 & \cdots &   1 & 1              & 1\\
+         &   &   &             & b_1            & b_1\\
+         &   &   &             & \vdots         & \vdots\\
+         &   &   &             & b_l            & b_l\\
+  \chi_s & a_1 &\cdots & a_k & c & d\\
+  \chi_t & a_1 &\cdots & a_k & d & c\\
+\end{array}
+\begin{array}{|ccccccc}
+  \mathcal{CT}_G         &   &       &       & g_1 & g_2 & g_G\\
+  \chi_1 & 1 & \cdots  & 1 & 1              & 1 & 1\\
+         &   &   &             & b_1            & b_1 &\\
+         &   &   &             & \vdots         & \vdots&\\
+         &   &   &             & b_l            & b_l&\\
+  \chi_s & a_1 &\cdots  & a_k & c & d &a_i\\
+  \chi_t & a_1 &\cdots  & a_k & d & c &a_i\\
+  \chi_u &     &        &    & \mu & \mu^{\prime} &\\ 
+\end{array}
+\]
+\pause
+Assume that $g_1\sim g_1z$ and $g_2\sim g_2z$.\pause\vspace{.2cm}
+
+If $z\in\mathrm{ker}(\chi_u)$, $\chi_u$ is an irreducible character of
+$H$ and we are done. Suppose that $z\notin\mathrm{ker}(\chi_u)$.\pause\vspace{.2cm}
+
+Since $z$ is a central element of order 2 not in the kernel of $\chi_u$,
+$\rho_u(z)=-I_{\chi_{u}(1)}$.\pause\vspace{.2cm}
+
+$\mu=\chi_u(g_1)=\chi_u(g_1z)=-\chi_u(g_1)=-\mu$, so
+$\mu=0$. Similarly $\mu^{\prime}=0$. \vspace{.2cm}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Outer automorphisms}
+\begin{itemize}
+\item For any group $G$, we have a group of automorphisms
+$\mathrm{Aut}(G)$. The normal subgroup of inner automorphisms, denoted
+$\mathrm{Inn}(G)$ is defined to be those that act by conjugation $G$.\pause
+
+\item Let $\mathrm{Out}(G)=\mathrm{Aut}(G)/\mathrm{Inn}(G)$.\pause
+
+\item Outer automorphisms act on character tables by permuting conjugacy
+classes and characters.\pause
+
+\item If $G$ is a non-trivial $p$-group, then it has a non-trivial outer
+automorphism. (Gasch\"utz 1965)\pause
+
+\item There exist groups with outer automorphisms that act trivially
+  on conjugacy classes, called \emph{class-preserving outer
+    automorphisms}. Denoted $\mathrm{Out}_C(G)$, they form ac7 subgroup
+  of $\mathrm{Out}(G)$.\pause
+
+\item If we know that $|\mathrm{Out}_C(G)|\lneq |\mathrm{Out}(G)|$, as we do
+for several classes of $p$-groups, we can narrow the search for
+counterexamples. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\centering \LARGE Thank you!
+\end{frame}
+
+
+\end{document}
+
+
+
+

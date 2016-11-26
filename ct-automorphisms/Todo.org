@@ -1,0 +1,18 @@
+#+COLUMNS: %25ITEM %TODO %3PRIORITY %6Effort %TAGS
+
+* Mathematics research
+** Outer automorphisms of CTs
+*** TODO Write up new results
+*** TODO Nonlinear character calculations
+    Take a maximal subgroup of (32,??), find its characters, and
+    induce all of them to G. List the cases and find how they are
+    constructed.
+*** TODO Write a program to check inductions
+    ...of maximal subgroup characters to G. Run it for all groups up
+    to a certain order, whatever is computationally feasable.
+** Matrix commuting pairs
+*** DONE Prove generalization
+    - State "DONE"       from "TODO"       [2014-10-23 cs 22:58]
+*** TODO Fix proof details
+*** TODO TeXify proof and investigations
+*** Investigate sequence of polynomials (bounds, etc...)

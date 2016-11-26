@@ -1,0 +1,93 @@
+#    -*- mode: org -*-
+
+
+Archived entries from file /home/sh0e/org/Research/Research.org
+
+
+* Archived Tasks
+
+** DONE Write up this proof
+   SCHEDULED: <2015-01-29 cs> DEADLINE: <2015-03-13 p>
+   CLOCK: [2015-02-03 k 05:18]--[2015-02-03 k 05:54] =>  0:36
+   CLOCK: [2015-02-03 k 04:17]--[2015-02-03 k 04:58] =>  0:41
+   CLOCK: [2015-02-03 k 03:20]--[2015-02-03 k 03:56] =>  0:36
+   CLOCK: [2015-02-03 k 02:12]--[2015-02-03 k 02:24] =>  0:12
+   CLOCK: [2015-02-03 k 02:02]--[2015-02-03 k 02:05] =>  0:03
+   :PROPERTIES:
+   :ARCHIVE_TIME: 2015-05-01 p 11:42
+   :ARCHIVE_FILE: ~/org/Research/Research.org
+   :ARCHIVE_OLPATH: Automorphism Groups of Character Tables
+   :ARCHIVE_CATEGORY: Research
+   :ARCHIVE_TODO: DONE
+   :END:
+   We assume that there is a character table automorphism in a group
+   $H\simeq G/\langle z\rangle$, where $G$ is a non-abelian $p$-group
+   and $z$ is a central element of order two. We have two cases.
+
+   - Case 1. Assume that this automrophism affects only classes that,
+     as classes in G, stabilize the action of $z$. In other words, if
+     $\phi\in\mathrm{Aut}(\mathcal{CT}(H))$ and
+     $\phi_{col}(\mathcal{K}_i)=\mathcal{K}_j$, then for all
+     $g\in\mathcal{K}_i$, $g\sim_{\tiny G} gz$.
+
+   Let $\chi_S$ be an irreducible character of $G$ that is not an
+   $H$-character. Then if $z\in$ ker $\chi_S$, we are done. FIXME:
+   Why? If it is not, then as a central element of order, it must be
+   mapped to $-\chi_S(1)$. Let $\rho_S$ be the irreducible
+   representation corresponding to $\chi_S$. Then if $g$ and $h$ are
+   conjugacy class representatives of the permuted columns, we know
+   that $g\cong gz$ and $h\cong hz$. But since
+   $\rho_S(z)=-I_{\chi_S(1)}$, $\chi(g)=-\chi(g)$ and likewise for
+   $h$, so both character values must be 0. FIXME: Why doesn't this
+   kill every character value?
+
+** DONE Proposed abstract for Spring Research Conference <2015-03-21 szo 08:00-14:00>
+   DEADLINE: <2015-02-27 p>
+   CLOCK: [2015-02-03 k 03:20]--[2015-02-03 k 03:20] =>  0:00
+   CLOCK: [2015-02-03 k 02:24]--[2015-02-03 k 02:50] =>  0:26
+   :PROPERTIES:
+   :ARCHIVE_TIME: 2015-05-01 p 11:42
+   :ARCHIVE_FILE: ~/org/Research/Research.org
+   :ARCHIVE_OLPATH: Automorphism Groups of Character Tables
+   :ARCHIVE_CATEGORY: Research
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   Let CT be a fixed character table of some finite group G and
+   consider the automorphism group of CT under row and column
+   permutations. We investigate the properties of these automorphism
+   groups and give some results that restrict the structure of G based
+   on its character table automorphisms. We also outline our progress
+   towards showing which non-abelian solvable groups have nontrivial
+   character table automorphisms.
+
+** DONE Show that extraspecial 2 groups have Aut(CT(G))=S_n
+   DEADLINE: <2015-03-17 k>
+   CLOCK: [2015-02-04 sze 18:43]--[2015-02-04 sze 18:46] =>  0:03
+   :PROPERTIES:
+   :ARCHIVE_TIME: 2015-05-01 p 11:42
+   :ARCHIVE_FILE: ~/org/Research/Research.org
+   :ARCHIVE_OLPATH: Automorphism Groups of Character Tables
+   :ARCHIVE_CATEGORY: Research
+   :ARCHIVE_TODO: DONE
+   :END:
+
+** DONE Show that dihedral groups have nontrivial CT aut groups
+   DEADLINE: <2015-02-16 h>
+   :PROPERTIES:
+   :ARCHIVE_TIME: 2015-05-01 p 11:42
+   :ARCHIVE_FILE: ~/org/Research/Research.org
+   :ARCHIVE_OLPATH: Automorphism Groups of Character Tables
+   :ARCHIVE_CATEGORY: Research
+   :ARCHIVE_TODO: DONE
+   :END:
+
+** DONE Clean up notes for presentation
+   DEADLINE: <2015-03-16 h>
+   :PROPERTIES:
+   :ARCHIVE_TIME: 2015-05-01 p 11:42
+   :ARCHIVE_FILE: ~/org/Research/Research.org
+   :ARCHIVE_OLPATH: Automorphism Groups of Character Tables
+   :ARCHIVE_CATEGORY: Research
+   :ARCHIVE_TODO: DONE
+   :END:

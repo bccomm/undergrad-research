@@ -1,0 +1,81 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{amsthm,amssymb}
+\newtheorem{theorem}{Theorem}
+\begin{document}
+We seek to find centralizers for sums of transpositions as group
+algebra elements.
+
+If there is only one summand, WOLOG $(12)$ we find immediately that disjoint
+elements and elements of the form $(1k)+(2k)$ comprise the
+centralizer.
+
+For two summands there are two cases to consider. First we develop a
+general method for calculating the centralizers.
+
+\begin{theorem}
+The product of symmetric matrices is commutative if and only if the
+product is symmetric.
+\end{theorem}
+
+We begin by encoding the information into a matrix. Let $M$ be the $(0,1)$
+matrix where $M=[m_{ij}=1$ whenever $(ij)$ appears in the summand and
+zero otherwise. FIXME: This homomorphism is injective, since we are
+only considering transpositions.
+
+We then write the block matrix 
+$$ \left[
+\begin{array}{cc}
+M & 0\\ 
+0 & |S_1|I_k\\
+\end{array}
+\right ]
+$$
+
+and demand that it commute with 
+
+$$
+\left[
+\begin{array}{cc}
+A & B \\
+B^T & C\\
+\end{array}\right] .
+$$
+
+We obtain the relations $MA=AM$ and $MB=|S_1|B$. Suppose that 
+
+\[
+B= \left(
+\begin{array}{c}
+\mathbf{b_1}\\
+\mathbf{b_2}\\
+\vdots\\
+\mathbf{b_k}\\
+\end{array}
+\right)
+\]
+
+Then $b_i=b_j$ iff $(ij)$ appears somewhere in the summation.
+
+We find then that $A$ corresponds to trivial commutators (Field
+elements of the group algebra and multiples of the original summand),
+$B$ corresponds to all nontrivial summands, and $C$ is completely
+arbitrary, corresponding to sums of disjoint transpositions.
+
+For the case $(12)+(13)$,
+M= \[
+\left[
+\begin{array}{ccc}
+0 & 1 & 1\\
+1 & 1 & 0\\
+1 & 0 & 1\\
+\end{array}\right]
+\]
+
+We find that $b_1=b_2=b_3$, meaning that in this portion of the
+matrix, all commutators must be of the form $(1a)+(2a)+(3a)$, and
+indeed all these elements commute. 
+
+For the case $(12)+(34)$, we find that $b_1=b_2$ and $b_3=b_4$,
+meaning that nontrivial commutators must be of the form
+$t(1a)+t(2a)+s(3b)+s(4b)$, where $s,t\in\{0,1\}$. 
+\end{document}
