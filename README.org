@@ -1,0 +1,24 @@
+#+TITLE: Code for undergraduate research projects
+#+AUTHOR: Bruce V Chiarelli
+
+This repository contains some computational investigations, written in
+SAGE, Python, GAP, and Magma, which I did as part of a few research
+projects as an undergraduate. All projects were supervised by
+Dr. Stephen P. Humphries, chair of Graduate Studies in the Mathematics
+Department at Brigham Young University.
+
+None of the code is in a particularly good state: most were hastily
+written to confirm or rule out hypotheses and/or just satisfy my
+curiosity. I will eventually^{TM} get around to cleaning them up (or at
+least adding some better explanations of what they do).
+
+=ct-automorphisms= contains some code related to automorphism groups
+on the character tables of finite groups, as well as a presentation I
+gave on that work. It also contains some unrelated work on counting
+commuting pairs of elements in linear groups.
+
+=s-rings= contains some code and two presentations I gave about
+certain group subalgebras, called Schur rings (S-rings). Included are
+some interesting results relating S-rings over symmetric groups to
+edge colorings of complete graphs, along with a formula to count the
+number of equivalence classes of maximal S-rings.
