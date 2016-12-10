@@ -1,5 +1,10 @@
 #!/usr/bin/sage
 
+# This code calculates the number of C2 pairs in GL(n,p) living inside
+# GL(m,p), for n < m. p must be specified, and the idea is to find a
+# pattern.
+
+
 L = list()
 M = list()
 

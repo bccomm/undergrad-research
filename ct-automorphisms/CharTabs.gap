@@ -1,3 +1,12 @@
+#!/usr/local/bin/gap
+
+# This program takes as input a group size. For all groups of that
+# size, this prints non-central elements which are stable with respect
+# to conjugacy classes under multiplicaton by central elements.
+
+# The purpose is to find instances of nontrivial outer automorphisms
+# which leave conjugacy classes fixed.
+
 for i in [27] do
     for j in AllGroups(Size,i) do
         for k in Elements(j) do
@@ -15,3 +24,5 @@ for i in [27] do
         od;
     od;
 od;
+
+quit;

@@ -1,7 +1,8 @@
-#!/usr/bin/sage
+#!/usr/local/bin/sage
 
 #A = CyclicPermutationGroup(2).character_table()
-A=DihedralGroup(16).character_table()
+#A=DihedralGroup(16).character_table()
+A = CyclicPermutationGroup(8).character_table()
 A.swap_rows(0,1)
 #B = A.tensor_product(A,subdivide=False).tensor_product(A,subdivide=False)
 B=A
