@@ -7,10 +7,10 @@ projects as an undergraduate. All projects were supervised by
 Dr. Stephen P. Humphries, chair of Graduate Studies in the Mathematics
 Department at Brigham Young University.
 
-None of the code is in a particularly good state: most were hastily
+None of the code is in a particularly good state: most of it was only
 written to confirm or rule out hypotheses and/or just satisfy my
-curiosity. I will eventually^{TM} get around to cleaning them up (or at
-least adding some better explanations of what they do).
+curiosity. A cleanup effort is underway (along with better comments to
+explain what the code does).
 
 =ct-automorphisms= contains some code related to automorphism groups
 on the character tables of finite groups, as well as a presentation I
@@ -20,5 +20,6 @@ commuting pairs of elements in linear groups.
 =s-rings= contains some code and two presentations I gave about
 certain group subalgebras, called Schur rings (S-rings). Included are
 some interesting results relating S-rings over symmetric groups to
-edge colorings of complete graphs, along with a formula to count the
-number of equivalence classes of maximal S-rings.
+edge colorings of complete graphs. By showing a bijection onto another
+combinatorial structure, we identify a formula to count the number of
+equivalence classes of maximal S-rings.
